@@ -1,0 +1,25 @@
+body {
+    font-size: 20px;
+}
+
+input,
+button,
+select {
+    font-size: inherit;
+}
+
+#playersBox {
+    display: flex;
+}
+
+.playerBox {
+    flex: 1;
+    text-align: center;
+}
+
+.selectBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}

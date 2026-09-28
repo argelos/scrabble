@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Scrabble</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="selectBox">
+    <h1>Scrabble</h1>
+</div>
+
+<div id="addingPage">
+    <div class="selectBox">
+        <input id="nickInput" placeholder="Imię gracza">
+        <button id="nickButton">Dodaj gracza</button>
+        <ul id="playersList">
+        </ul>
+
+        <button id="playButton">Graj</button>
+    </div>
+</div>
+
+<div id="scrablePage" hidden>
+    <!-- <div class="selectBox">
+        <p>Grę rozpoczyna Michał</p>
+    </div> -->
+
+    <div id="playersBox"></div>
+
+    <br><br><br>
+
+    <div class="selectBox">
+        <select id="playerSelect"></select>
+        <input id="pointsInput" placeholder="Zdobyte punkty" type="number">
+        <button id="pointsButton">Dodaj</button>
+    </div>
+
+    <br><br>
+
+    <div class="selectBox">
+        <h2 style="margin-bottom: 0px;">Minutnik</h2>
+        <select name="Czas" id="timerSelect">
+            <option value="30">30 sek</option>
+            <option value="60">1 min</option>
+            <option value="120" selected>2 min</option>
+            <option value="180">3 min</option>
+            <option value="300">5 min</option>
+        </select>
+        <h1 id="timer">0</h1>
+        <button id="startTimerButton">Start</button>
+        <!-- <button id="pauseTimerButton">Pause</button> -->
+        <button id="stopTimerButton">Stop</button>
+    </div>
+
+    <br><br><br>
+
+    <div class="selectBox">
+        <a href="https://www.pfs.org.pl/osps_mobile.php" target="_blank">Sprawdź słowo w słowniku</a>
+    </div>
+</div>
+
+<script src="adding.js"></script>
+<script src="scrable.js"></script>
+
+</body>
