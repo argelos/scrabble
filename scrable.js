@@ -1,11 +1,42 @@
 const playersBox = document.getElementById("playersBox");
-const playerSelect = document.getElementById("playerSelect");
 const pointsInput = document.getElementById("pointsInput");
+const addPointsButton = document.getElementById("addPointsButton");
 const timer = document.getElementById("timer");
 const startTimerButton = document.getElementById("startTimerButton");
-// const pauseTimerButton = document.getElementById("pauseTimerButton");
 const stopTimerButton = document.getElementById("stopTimerButton");
 const timerSelect = document.getElementById("timerSelect");
+const gridSelect = document.getElementById("gridSelect");
+
+// let lastActive = null, nowActive = null;
+// document.addEventListener("focusin", () => {
+//     if (nowActive === null){
+//         nowActive = document.activeElement;
+//         lastActive = null;
+//     }
+//     else{
+//         lastActive = nowActive;
+//         nowActive = document.activeElement;
+//     }
+//     focusLength++;
+// });
+// document.addEventListener("focusout", () => {
+
+// });
+
+let selected;
+
+function reloadSelected(){
+    for (let child of playersBox.children){
+        child.style.backgroundColor = "white";
+    }
+    let child = playersBox.children[selected];
+    child.style.backgroundColor = "grey";
+}
+
+function select(which){
+    selected = which;
+    reloadSelected();
+}
 
 function generatePlayersBox(){
     for (let i = 0; i < players.length; i++){
@@ -22,38 +53,19 @@ function generatePlayersBox(){
         let p = document.createElement("p");
         p.textContent = 0;
         playerBox.append(p);
+
+        playerBox.addEventListener("click", () => {
+            select(i);
+        });
     }
-}
-
-function generatePlayerSelect(){
-    for (let i = 0; i < players.length; i++){
-        player = players[i];
-
-        let o = document.createElement("option");
-        o.value = i;
-        o.textContent = player;
-
-        playerSelect.appendChild(o);
-    }
-}
-
-function reloadSelected(){
-    for (let child of playersBox.children){
-        child.style.backgroundColor = "white";
-    }
-    let child = playersBox.children[playerSelect.selectedIndex];
-    child.style.backgroundColor = "grey";
 }
 
 function pickStartingPlayer(){
-    let r = Math.floor(Math.random() * players.length);
-    playerSelect.selectedIndex = r;
-    // alert(`Grę rozpoczyna ${players[r]}`);
+    selected = Math.floor(Math.random() * players.length);
 }
 
 function generate(){
     generatePlayersBox();
-    generatePlayerSelect();
 
     pickStartingPlayer();
     reloadSelected();
@@ -69,29 +81,25 @@ function reloadPlayers(){
     }
 }
 
-playerSelect.addEventListener("change", () => {
-    reloadSelected();
-});
-
-pointsButton.addEventListener("click", () => {
+addPointsButton.addEventListener("click", () => {
     if (pointsInput.value != ""){
-        points[playerSelect.value] += parseInt(pointsInput.value);
+        points[selected] += parseInt(pointsInput.value);
     }
 
     pointsInput.value = "";
     reloadPlayers();
 
-    playerSelect.selectedIndex = (playerSelect.selectedIndex + 1) % playerSelect.options.length;
+    selected = (selected + 1) % players.length;
 
     reloadSelected();
-    pointsInput.focus();
 
     startTimer();
+    pointsInput.focus();
 });
 
 pointsInput.addEventListener("keydown", (event) => {
     if (event.key == "Enter"){
-        pointsButton.click();
+        addPointsButton.click();
     }
 });
 
@@ -114,10 +122,6 @@ function startTimer(){
         sound.currentTime = 0;
     }, 2200);
 
-    // let secondsLeft = parseInt(timer.textContent);
-    // if (secondsLeft == 0){
-
-    // }
     let secondsLeft = timerSelect.value;
     timer.textContent = secondsLeft;
 
@@ -136,19 +140,29 @@ function startTimer(){
 
 startTimerButton.addEventListener("click", () => {
     startTimer();
+    pointsInput.focus();
 });
 
 stopTimerButton.addEventListener("click", () => {
     stopTimer();
+    pointsInput.focus();
 });
 
-function addKeydows(){
-    document.addEventListener("keydown", (event) => {
-        if (event.key == " "){
-            startTimerButton.click();
-        }
-        if (event.key == "Enter"){
-            pointsInput.focus();
-        }
-    });
+function changeColumns(columns){
+    playersBox.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 }
+
+gridSelect.addEventListener("change", () => {
+    changeColumns(parseInt(gridSelect.value));
+});
+
+// function addKeydows(){
+//     document.addEventListener("keydown", (event) => {
+//         if (event.key == " "){
+//             startTimerButton.click();
+//         }
+//         if (event.key == "Enter"){
+//             pointsInput.focus();
+//         }
+//     });
+// }

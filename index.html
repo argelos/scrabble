@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Scrabble</title>
-    <link rel="stylesheet" href="gptstyle.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -14,7 +14,7 @@
 
 <div id="addingPage">
     <div class="selectBox">
-        <input id="nickInput" placeholder="Imię gracza">
+        <input id="nickInput" placeholder="Imię gracza" enterkeyhint="go">
         <button id="nickButton">Dodaj gracza</button>
         <ul id="playersList">
         </ul>
@@ -24,25 +24,15 @@
 </div>
 
 <div id="scrablePage" hidden>
-    <!-- <div class="selectBox">
-        <p>Grę rozpoczyna Michał</p>
-    </div> -->
 
     <div id="playersBox"></div>
 
-    <!-- <br> -->
-    <!-- <br><br><br> -->
-
     <div class="selectBox">
-        <select id="playerSelect"></select>
         <input id="pointsInput" placeholder="Zdobyte punkty" type="number">
-        <button id="pointsButton">Dodaj</button>
+        <button id="addPointsButton">Dodaj</button>
     </div>
 
-    <!-- <br><br> -->
-
     <div class="selectBox">
-        <h2 style="margin-bottom: 0px;">Minutnik</h2>
         <select name="Czas" id="timerSelect">
             <option value="30">30 sek</option>
             <option value="60">1 min</option>
@@ -52,15 +42,21 @@
         </select>
         <h1 id="timer">0</h1>
         <button id="startTimerButton">Start</button>
-        <!-- <button id="pauseTimerButton">Pause</button> -->
         <button id="stopTimerButton">Stop</button>
     </div>
 
-    <!-- <br><br><br> -->
-    <!-- <br> -->
-
     <div class="selectBox">
         <a href="https://www.pfs.org.pl/osps_mobile.php" target="_blank">Sprawdź słowo w słowniku</a>
+    </div>
+
+    <div class="selectBox">
+        <span>Liczba graczy w wierszu</span>
+        <select id="gridSelect">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
     </div>
 </div>
 

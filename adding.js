@@ -39,7 +39,7 @@ playButton.addEventListener("click", () => {
     }
 
     generate();
-    addKeydows();
+    // addKeydows();
 
     document.getElementById("addingPage").hidden = true;
     document.getElementById("scrablePage").hidden = false;

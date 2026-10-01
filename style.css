@@ -9,7 +9,8 @@ select {
 }
 
 #playersBox {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .playerBox {
@@ -19,7 +20,7 @@ select {
 
 .selectBox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
 }
