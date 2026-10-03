@@ -42,7 +42,7 @@ playButton.addEventListener("click", () => {
     // addKeydows();
 
     document.getElementById("addingPage").hidden = true;
-    document.getElementById("scrablePage").hidden = false;
+    document.getElementById("scrabblePage").hidden = false;
 
     pointsInput.focus();
 });

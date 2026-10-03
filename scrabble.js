@@ -27,10 +27,12 @@ let selected;
 
 function reloadSelected(){
     for (let child of playersBox.children){
-        child.style.backgroundColor = "white";
+        child.style.backgroundColor = "#037d67";
+        child.classList.remove("colorFloat");
     }
     let child = playersBox.children[selected];
-    child.style.backgroundColor = "grey";
+    child.style.backgroundColor = "#e6d9b7";
+    child.classList.add("colorFloat");
 }
 
 function select(which){
@@ -56,6 +58,7 @@ function generatePlayersBox(){
 
         playerBox.addEventListener("click", () => {
             select(i);
+            pointsInput.focus();
         });
     }
 }

@@ -8,48 +8,47 @@
 
 <body>
 
-<div class="selectBox">
-    <h1>Scrabble</h1>
-</div>
+<span id="scrabbleText">scrabble</span>
 
 <div id="addingPage">
-    <div class="selectBox">
+    <div class="HorizontalBox">
         <input id="nickInput" placeholder="Imię gracza" enterkeyhint="go">
-        <button id="nickButton">Dodaj gracza</button>
-        <ul id="playersList">
-        </ul>
+        <button id="nickButton">Dodaj</button>
+    </div>
 
+    <div class="HorizontalBox">
+        <ul id="playersList"></ul>
+    </div>
+
+    <div class="HorizontalBox">
         <button id="playButton">Graj</button>
     </div>
 </div>
 
-<div id="scrablePage" hidden>
+<div id="scrabblePage" hidden>
 
     <div id="playersBox"></div>
 
-    <div class="selectBox">
-        <input id="pointsInput" placeholder="Zdobyte punkty" type="number">
+    <div class="HorizontalBox">
+        <input id="pointsInput" placeholder="Zdobyte punkty (0)" type="number" enterkeyhint="go">
         <button id="addPointsButton">Dodaj</button>
     </div>
 
-    <div class="selectBox">
-        <select name="Czas" id="timerSelect">
-            <option value="30">30 sek</option>
-            <option value="60">1 min</option>
-            <option value="120" selected>2 min</option>
-            <option value="180">3 min</option>
-            <option value="300">5 min</option>
-        </select>
+    <div class="HorizontalBox">
         <h1 id="timer">0</h1>
         <button id="startTimerButton">Start</button>
         <button id="stopTimerButton">Stop</button>
     </div>
 
-    <div class="selectBox">
+    <br>
+
+    <div class="HorizontalBox">
         <a href="https://www.pfs.org.pl/osps_mobile.php" target="_blank">Sprawdź słowo w słowniku</a>
     </div>
+    
+    <br>
 
-    <div class="selectBox">
+    <div class="HorizontalBox">
         <span>Liczba graczy w wierszu</span>
         <select id="gridSelect">
             <option value="1">1</option>
@@ -58,9 +57,20 @@
             <option value="4">4</option>
         </select>
     </div>
+
+    <div class="HorizontalBox">
+        <span>Czas odliczania minutnika</span>
+        <select name="Czas" id="timerSelect">
+            <option value="30">30 sek</option>
+            <option value="60">1 min</option>
+            <option value="120" selected>2 min</option>
+            <option value="180">3 min</option>
+            <option value="300">5 min</option>
+        </select>
+    </div>
 </div>
 
 <script src="adding.js"></script>
-<script src="scrable.js"></script>
+<script src="scrabble.js"></script>
 
 </body>

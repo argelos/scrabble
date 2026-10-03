@@ -1,11 +1,107 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat.ttf");
+}
+@font-face {
+    font-family: "ScrambleMixed";
+    src: url("fonts/Scramblemixed.ttf");
+}
+
+@keyframes colorFloat {
+    0%, 100% {
+        background-color: #e6d9b7;
+    }
+
+    50% {
+        background-color: #ada386;
+    }
+}
+
+.colorFloat {
+    animation: colorFloat 2s ease-in-out infinite;
+}
+
 body {
     font-size: 20px;
+    font-family: "Montserrat";
+    text-align: center;
+    background-color: #00533c;
 }
 
 input,
 button,
 select {
     font-size: inherit;
+    font-family: inherit;
+    background-color: #e6d9b7;
+    border-radius: 5px;
+    border: none;
+    transition:
+        background-color 0.1s;
+        transform: 0.1s;
+    outline: none;
+}
+
+button {
+    color: black;
+}
+
+button:hover {
+    background-color: #cfc2a1;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid black;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input {
+    width: 220px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px;
+}
+
+h1 {
+    margin: 10px;
+}
+
+#scrabbleText {
+    display: inline-block;
+    font-family: ScrambleMixed;
+    font-size: 70px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #dd0320e2;
+}
+
+#addingPage,
+#scrabblePage {
+    background-color: #048e75;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 #playersBox {
@@ -16,11 +112,19 @@ select {
 .playerBox {
     flex: 1;
     text-align: center;
+    border-radius: 10px;
+    margin: 7px;
 }
 
-.selectBox {
+.HorizontalBox {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+    margin: 10px;
+}
+
+#timer {
+    width: 60px;
+    text-align: center;
 }
